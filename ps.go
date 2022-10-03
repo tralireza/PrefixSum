@@ -13,8 +13,7 @@ func checkSubarraySum(nums []int, k int) bool {
 	/*
 	   Prefix_i = a_0 + ... + a_i
 	   Sum(Subarray[i+1, j]) = Prefix_j - Prefix_i
-
-	   Prefix_j - Prefix_i % k == 0  =>  Prefix_j == Prefix_i (mod k)
+	   (Prefix_j - Prefix_i) % k == 0  =>  Prefix_j == Prefix_i (mod k)
 	*/
 
 	Index := map[int]int{0: -1}
