@@ -34,3 +34,21 @@ func checkSubarraySum(nums []int, k int) bool {
 
 	return false
 }
+
+// 974m Subarray Sums Divisible by K
+func subarraysDivByK(nums []int, k int) int {
+	F := map[int]int{0: 1}
+
+	x, mpfx := 0, 0
+	for _, n := range nums {
+		mpfx += n%k + k
+		mpfx %= k
+
+		if f, ok := F[mpfx]; ok {
+			x += f
+		}
+		F[mpfx]++
+	}
+
+	return x
+}
